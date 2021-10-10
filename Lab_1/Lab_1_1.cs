@@ -1,33 +1,14 @@
 ﻿using System;
 using System.Linq;
+using Reference;
 
 namespace Lab_1_1
 {
     class Lab_1_1
     {
-        static int findIndex(int [] array, int item)
-        {
-            return Array.FindIndex(array, val => val.Equals(item));
-        }
-        static int ParityArray(int[] array)
-        {
-            string[] parityArray = new string[array.Length];
-            int value = 0;
-
-            foreach (var item in array)
-            {
-                if (item % 2 == 0)
-                {
-                    parityArray[value] = item.ToString();
-                    value++;
-                }
-
-            }
-            Console.WriteLine("{0}", string.Join(" ", parityArray));
-            return 1;
-        }
         static void Main(string[] args)
         {
+            Start.ReadFormat(Console.ReadLine());
             string mode = Console.ReadLine();
             int[] intArray = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
 
@@ -50,8 +31,8 @@ namespace Lab_1_1
                 }
             }
 
-            Console.WriteLine($"{numMAX} {findIndex(intArray, numMAX)}");
-            Console.WriteLine($"{numMIN} {findIndex(intArray, numMIN)}");
+            Console.WriteLine($"{numMAX} {Help.findIndex(intArray, numMAX)}");
+            Console.WriteLine($"{numMIN} {Help.findIndex(intArray, numMIN)}");
 
             switch (mode)
             {
@@ -81,11 +62,10 @@ namespace Lab_1_1
 
                     Console.WriteLine("{0}", string.Join(" ", copyArray));
                     Console.WriteLine("{0}", string.Join(" ", reverseArray));
-                    ParityArray(reverseArray);
+                    Help.ParityArray(reverseArray);
                     break;
                 case "b":
- 
-                    ParityArray(intArray.OrderByDescending(c => c).ToArray());
+                    Help.ParityArray(intArray.OrderByDescending(c => c).ToArray());
                     break;
                 default:
                     Console.WriteLine("Режим не выбран, заканчиваю работу…");
