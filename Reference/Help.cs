@@ -57,53 +57,77 @@ namespace Reference
             switch (symbol)
             {
                 case "*":
-                    for (int x = 0; x < matrixvalue[0]; x++)
+                    try
                     {
-                        var value1 = 0;
-                        var value2 = 0;
-                        var value3 = 0;
-
-                        for (int y = 0; y < matrixvalue[1]; y++)
+                        for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            value1 = y == 0 ? matrix1[x, y] * matrix2[x, y] : value1;
-                            value2 = y == 1 ? matrix1[x, y] * matrix2[x, y] : value2;
-                            value3 = y == 2 ? matrix1[x, y] * matrix2[x, y] : value3;
+                            var value1 = 0;
+                            var value2 = 0;
+                            var value3 = 0;
+
+                            for (int y = 0; y < matrixvalue[1]; y++)
+                            {
+                                value1 = y == 0 ? matrix1[x, y] * matrix2[x, y] : value1;
+                                value2 = y == 1 ? matrix1[x, y] * matrix2[x, y] : value2;
+                                value3 = y == 2 ? matrix1[x, y] * matrix2[x, y] : value3;
+                            }
+                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
-                        Console.WriteLine($"{value1} {value2} {value3}");
+                        break;
                     }
-                    break;
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Multiply недопустима!");
+                        break;
+                    }
                 case "+":
-                    for (int x = 0; x < matrixvalue[0]; x++)
+                    try
                     {
-                        var value1 = 0;
-                        var value2 = 0;
-                        var value3 = 0;
-
-                        for (int y = 0; y < matrixvalue[1]; y++)
+                        for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            value1 = y == 0 ? matrix1[x, y] + matrix2[x, y] : value1;
-                            value2 = y == 1 ? matrix1[x, y] + matrix2[x, y] : value2;
-                            value3 = y == 2 ? matrix1[x, y] + matrix2[x, y] : value3;
+                            var value1 = 0;
+                            var value2 = 0;
+                            var value3 = 0;
+
+                            for (int y = 0; y < matrixvalue[1]; y++)
+                            {
+                                value1 = y == 0 ? matrix1[x, y] + matrix2[x, y] : value1;
+                                value2 = y == 1 ? matrix1[x, y] + matrix2[x, y] : value2;
+                                value3 = y == 2 ? matrix1[x, y] + matrix2[x, y] : value3;
+                            }
+                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
-                        Console.WriteLine($"{value1} {value2} {value3}");
+                        break;
                     }
-                    break;
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Add недопустима!");
+                        break;
+                    }
                 case "-":
-                    for (int x = 0; x < matrixvalue[0]; x++)
+                    try
                     {
-                        var value1 = 0;
-                        var value2 = 0;
-                        var value3 = 0;
-
-                        for (int y = 0; y < matrixvalue[1]; y++)
+                        for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            value1 = y == 0 ? matrix1[x, y] - matrix2[x, y] : value1;
-                            value2 = y == 1 ? matrix1[x, y] - matrix2[x, y] : value2;
-                            value3 = y == 2 ? matrix1[x, y] - matrix2[x, y] : value3;
+                            var value1 = 0;
+                            var value2 = 0;
+                            var value3 = 0;
+
+                            for (int y = 0; y < matrixvalue[1]; y++)
+                            {
+                                value1 = y == 0 ? matrix1[x, y] - matrix2[x, y] : value1;
+                                value2 = y == 1 ? matrix1[x, y] - matrix2[x, y] : value2;
+                                value3 = y == 2 ? matrix1[x, y] - matrix2[x, y] : value3;
+                            }
+                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
-                        Console.WriteLine($"{value1} {value2} {value3}");
+                        break;
                     }
-                    break;
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Subtract недопустима!");
+                        break;
+                    }
 
                 default:
                     break;

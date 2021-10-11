@@ -15,39 +15,35 @@ namespace Reference
                     break;
             }
         }
-        public static int ReadFormat(string key)
+        public static void ReadFormat(string key)
         {
             switch (key)
             {
                 case "kb":
                     Console.WriteLine("Выбран режим ввода с клавиатуры.");
-                    return 1;
+                    FindLab(0, null);
+                    break;
                 case "fl":
                     Console.WriteLine("Выбран режим ввода через .txt файл.\n\t Укажите название файла без .txt");
-                    Console.ReadLine();
-                    FindLab(1);
-                    return 2;
+                    var file = Console.ReadLine();
+                    FindLab(1, file);
+                    break;
                 default:
-                    return 0;
+                    break;
             }
         }
-        private static int FindLab(int key)
+        private static (string format, int[] array) FindLab(int key, string file)
         {
             switch (key)
             {
                 case 1:
-                    String line;
-                    StreamReader sr = new StreamReader("input.txt");
-                    line = sr.ReadLine();
-                    while (line != null)
-                    {
-                        Console.WriteLine(line);
-                        line = sr.ReadLine();
-                    }
+                    StreamReader sr = new StreamReader($"{file}.txt");
+                    string format = sr.ReadLine();
+                    int[] intArray = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
                     sr.Close();
-                    return 0;
+                    return (format, intArray);
                 default:
-                    return 0;
+                    return (null, null);
             }
         }
     }

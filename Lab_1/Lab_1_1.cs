@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
 using Reference;
 
 namespace Lab_1_1
@@ -8,9 +9,23 @@ namespace Lab_1_1
     {
         static void Main(string[] args)
         {
-            Start.ReadFormat(Console.ReadLine());
-            string mode = Console.ReadLine();
-            int[] intArray = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
+            Console.WriteLine("Выберите функцию\nkb-> Ввод с клавиатуры\nfl -> Чтение ввода из файла\n");
+            var format = Console.ReadLine();
+            string mode = "";
+            int[] intArray = new int[1];
+            if (format == "fl")
+            {
+                StreamReader sr = new StreamReader("input.txt");
+                mode = sr.ReadLine();
+                intArray = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
+                sr.Close();
+            }
+            if (format == "kb")
+            {
+                mode = Console.ReadLine();
+                intArray = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
+                Console.WriteLine();
+            }
 
             int numMIN = 0;
             int numMAX = 0;
@@ -65,6 +80,8 @@ namespace Lab_1_1
                     Help.ParityArray(reverseArray);
                     break;
                 case "b":
+                    Console.WriteLine("{0}", string.Join(" ", intArray.OrderBy(c => c).ToArray()));
+                    Console.WriteLine("{0}", string.Join(" ", intArray.OrderByDescending(c => c).ToArray()));
                     Help.ParityArray(intArray.OrderByDescending(c => c).ToArray());
                     break;
                 default:

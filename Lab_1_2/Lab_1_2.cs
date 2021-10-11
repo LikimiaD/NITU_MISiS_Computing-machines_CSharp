@@ -42,17 +42,11 @@ namespace Lab_1_2
             Console.WriteLine();
             for (int x = 0; x < matrixvalue[0]; x++)
             {
-                var value1 = 0;
-                var value2 = 0;
-                var value3 = 0;
-
                 for (int y = 0; y < matrixvalue[1]; y++)
                 {
-                    value1 = y == 0 ? matrix[x, y] : value1;
-                    value2 = y == 1 ? matrix[x, y] : value2;
-                    value3 = y == 2 ? matrix[x, y] : value3;
+                    Console.Write(matrix[x, y] + " ");
                 }
-                Console.WriteLine($"{value1} {value2} {value3}");
+                Console.WriteLine();
             }
             Help.findIndexMatrix(matrixvalue, matrix, max);
             Help.findIndexMatrix(matrixvalue, matrix, min);
