@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Reference;
 
 namespace Lab_1_2
@@ -7,49 +8,106 @@ namespace Lab_1_2
     {
         static void Main(string[] args)
         {
-            int[] matrixvalue = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
-            int[,] matrix = new int[matrixvalue[0], matrixvalue[1]];
+            string format = Start.Format();
 
             int? min = null;
             int? max = null;
-            for (int x = 0; x < matrixvalue[0]; x++)
+            int[] matrixvalue = null;
+            int[] matrixvalue1 = null;
+            int[,] matrix = null;
+            int[,] matrix1 = null;
+            switch (format)
             {
-                int[] temp = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
-                if (min == null || max == null)
-                {
-                    min = temp[0];
-                    max = temp[1];
-                }
-                for (int y = 0; y < matrixvalue[1]; y++)
-                {
-                    matrix[x, y] = temp[y];
-                    min = min > temp[y] ? temp[y] : min;
-                    max = max < temp[y] ? temp[y] : max;
-                }
+                case "kb":
+                    matrixvalue = Start.ReadMatrix();
+                    matrix = new int[matrixvalue[0], matrixvalue[1]];
+
+                    for (int x = 0; x < matrixvalue[0]; x++)
+                    {
+                        int[] temp = Start.ReadArray();
+                        if (min == null || max == null)
+                        {
+                            min = temp[0];
+                            max = temp[0];
+                        }
+                        for (int y = 0; y < matrixvalue[1]; y++)
+                        {
+                            matrix[x, y] = temp[y];
+                            min = min > temp[y] ? temp[y] : min;
+                            max = max < temp[y] ? temp[y] : max;
+                        }
+                    }
+
+                    matrixvalue1 = Start.ReadMatrix();
+
+                    matrix1 = new int[matrixvalue[0], matrixvalue[1]];
+                    for (int x = 0; x < matrixvalue1[0]; x++)
+                    {
+                        int[] temp = Start.ReadArray();
+                        for (int y = 0; y < matrixvalue1[1]; y++)
+                        {
+                            matrix1[x, y] = temp[y];
+                        }
+                    }
+                    Console.WriteLine();
+                    for (int x = 0; x < matrixvalue[0]; x++)
+                    {
+                        for (int y = 0; y < matrixvalue[1]; y++)
+                        {
+                            Console.Write(matrix[x, y] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+
+                case "fl":
+                    StreamReader sr = new StreamReader("input.txt");
+                    matrixvalue = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
+                    matrix = new int[matrixvalue[0], matrixvalue[1]];
+
+                    for (int x = 0; x < matrixvalue[0]; x++)
+                    {
+                        int[] temp = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
+                        if (min == null || max == null)
+                        {
+                            min = temp[0];
+                            max = temp[0];
+                        }
+                        for (int y = 0; y < matrixvalue[1]; y++)
+                        {
+                            matrix[x, y] = temp[y];
+                            min = min > temp[y] ? temp[y] : min;
+                            max = max < temp[y] ? temp[y] : max;
+                        }
+                    }
+
+                    matrixvalue1 = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
+
+                    matrix1 = new int[matrixvalue[0], matrixvalue[1]];
+                    for (int x = 0; x < matrixvalue1[0]; x++)
+                    {
+                        int[] temp = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
+                        for (int y = 0; y < matrixvalue1[1]; y++)
+                        {
+                            matrix1[x, y] = temp[y];
+                        }
+                    }
+                    Console.WriteLine();
+                    for (int x = 0; x < matrixvalue[0]; x++)
+                    {
+                        for (int y = 0; y < matrixvalue[1]; y++)
+                        {
+                            Console.Write(matrix[x, y] + " ");
+                        }
+                        Console.WriteLine();
+                    }
+                    break;
+                default:
+                    break;
             }
 
-            int[] matrixvalue1 = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
-
-            int[,] matrix1 = new int[matrixvalue[0], matrixvalue[1]];
-            for (int x = 0; x < matrixvalue1[0]; x++)
-            {
-                int[] temp = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
-                for (int y = 0; y < matrixvalue1[1]; y++)
-                {
-                    matrix1[x, y] = temp[y];
-                }
-            }
-            Console.WriteLine();
-            for (int x = 0; x < matrixvalue[0]; x++)
-            {
-                for (int y = 0; y < matrixvalue[1]; y++)
-                {
-                    Console.Write(matrix[x, y] + " ");
-                }
-                Console.WriteLine();
-            }
-            Help.findIndexMatrix(matrixvalue, matrix, max);
-            Help.findIndexMatrix(matrixvalue, matrix, min);
+            Help.findIndexMatrix(matrix, max);
+            Help.findIndexMatrix(matrix, min);
             Help.solve(matrixvalue1, matrix, matrix1, "*");
             Help.solve(matrixvalue1, matrix, matrix1, "+");
             Help.solve(matrixvalue1, matrix, matrix1, "-");

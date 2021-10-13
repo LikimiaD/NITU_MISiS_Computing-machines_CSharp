@@ -37,15 +37,15 @@ namespace Reference
             }
             Console.WriteLine("{0}", string.Join(" ", parityArray));
         }
-        public static void findIndexMatrix(int[] matrixvalue, int[,] matrix, int? num)
+        public static void findIndexMatrix(int[,] matrix, int? num)
         {
-            for (int x = 0; x < matrixvalue[0]; x++)
+            for (int x = 0; x < matrix.GetLength(0); x++)
             {
-                for (int y = 0; y < matrixvalue[1]; y++)
+                for (int y = 0; y < matrix.GetLength(1); y++)
                 {
                     if (matrix[x, y] == num)
                     {
-                        Console.WriteLine($"{num} {x} {y}");
+                        Console.WriteLine(String.Join(" ", num, x, y));
                         break;
                     }
                 }
@@ -61,17 +61,10 @@ namespace Reference
                     {
                         for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            var value1 = 0;
-                            var value2 = 0;
-                            var value3 = 0;
-
                             for (int y = 0; y < matrixvalue[1]; y++)
                             {
-                                value1 = y == 0 ? matrix1[x, y] * matrix2[x, y] : value1;
-                                value2 = y == 1 ? matrix1[x, y] * matrix2[x, y] : value2;
-                                value3 = y == 2 ? matrix1[x, y] * matrix2[x, y] : value3;
+                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] * matrix2[x, y]));
                             }
-                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
                         break;
                     }
@@ -85,17 +78,10 @@ namespace Reference
                     {
                         for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            var value1 = 0;
-                            var value2 = 0;
-                            var value3 = 0;
-
                             for (int y = 0; y < matrixvalue[1]; y++)
                             {
-                                value1 = y == 0 ? matrix1[x, y] + matrix2[x, y] : value1;
-                                value2 = y == 1 ? matrix1[x, y] + matrix2[x, y] : value2;
-                                value3 = y == 2 ? matrix1[x, y] + matrix2[x, y] : value3;
+                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
                             }
-                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
                         break;
                     }
@@ -109,17 +95,10 @@ namespace Reference
                     {
                         for (int x = 0; x < matrixvalue[0]; x++)
                         {
-                            var value1 = 0;
-                            var value2 = 0;
-                            var value3 = 0;
-
                             for (int y = 0; y < matrixvalue[1]; y++)
                             {
-                                value1 = y == 0 ? matrix1[x, y] - matrix2[x, y] : value1;
-                                value2 = y == 1 ? matrix1[x, y] - matrix2[x, y] : value2;
-                                value3 = y == 2 ? matrix1[x, y] - matrix2[x, y] : value3;
+                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
                             }
-                            Console.WriteLine($"{value1} {value2} {value3}");
                         }
                         break;
                     }
@@ -133,9 +112,8 @@ namespace Reference
                     break;
             }
         }
-        public static void RandomValueChanger(int[][] matrix)
+        public static void RandomValueChanger(int[][] matrix, int[] value)
         {
-            var value = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
             Random ran = new Random();
             matrix[value[0]][value[1]] = ran.Next(0, 1000);
             Console.WriteLine("{0}", string.Join(" ", matrix[value[0]]));

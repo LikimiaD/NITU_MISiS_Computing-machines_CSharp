@@ -7,8 +7,14 @@
 
   <ItemGroup>
     <Reference Include="Reference">
-      <HintPath>..\Reference\bin\Release\netcoreapp3.1\Reference.dll</HintPath>
+      <HintPath>..\Reference\bin\Debug\netcoreapp3.1\Reference.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="input.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

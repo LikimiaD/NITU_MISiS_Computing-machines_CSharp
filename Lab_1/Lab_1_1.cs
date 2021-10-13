@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Diagnostics;
 using System.IO;
 using Reference;
 
@@ -9,12 +10,13 @@ namespace Lab_1_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Выберите функцию\nkb-> Ввод с клавиатуры\nfl -> Чтение ввода из файла\n");
-            var format = Console.ReadLine();
+            Stopwatch sWatch = new Stopwatch();
+            string format = Start.Format();
             string mode = "";
             int[] intArray = new int[1];
             if (format == "fl")
             {
+                Console.WriteLine("Чтение ввода из файла\n");
                 StreamReader sr = new StreamReader("input.txt");
                 mode = sr.ReadLine();
                 intArray = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
@@ -22,10 +24,20 @@ namespace Lab_1_1
             }
             if (format == "kb")
             {
-                mode = Console.ReadLine();
-                intArray = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
+                Console.WriteLine("Ввод с клавиатуры\nФорма ввода:\nРежим\nМассив");
+                mode = Console.ReadLine().ToString();
+                while ((mode != "a") && (mode != "b"))
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Возможны только два варианта: a и b. Повторите попытку:");
+                    Console.ResetColor();
+                    format = Console.ReadLine();
+                }
+                intArray = Start.ReadArray();
                 Console.WriteLine();
             }
+            sWatch.Start();
 
             int numMIN = 0;
             int numMAX = 0;
@@ -88,6 +100,11 @@ namespace Lab_1_1
                     Console.WriteLine("Режим не выбран, заканчиваю работу…");
                     break;
             }
+            sWatch.Stop();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("Работа завершена за {0}", sWatch.Elapsed.ToString());
+            Console.ResetColor();
         }
     }
 }
