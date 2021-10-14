@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Lab_1_1">
+      <HintPath>..\Lab_1\bin\Debug\netcoreapp3.1\Lab_1_1.dll</HintPath>
+    </Reference>
+    <Reference Include="Lab_1_2">
+      <HintPath>..\Lab_1_2\bin\Debug\netcoreapp3.1\Lab_1_2.dll</HintPath>
+    </Reference>
+    <Reference Include="Lab_1_3">
+      <HintPath>..\Lab_1_3\bin\Debug\netcoreapp3.1\Lab_1_3.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="lab1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="lab2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="lab3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

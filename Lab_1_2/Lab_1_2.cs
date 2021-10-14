@@ -4,9 +4,13 @@ using Reference;
 
 namespace Lab_1_2
 {
-    class Lab_1_2
+    public class Lab_2
     {
-        static void Main(string[] args)
+        public static void Main()
+        {
+            Heart();
+        }
+        static void Heart()
         {
             string format = Start.Format();
 
@@ -61,7 +65,7 @@ namespace Lab_1_2
                     break;
 
                 case "fl":
-                    StreamReader sr = new StreamReader("input.txt");
+                    StreamReader sr = new StreamReader("lab2.txt");
                     matrixvalue = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
                     matrix = new int[matrixvalue[0], matrixvalue[1]];
 
@@ -108,9 +112,9 @@ namespace Lab_1_2
 
             Help.findIndexMatrix(matrix, max);
             Help.findIndexMatrix(matrix, min);
-            Help.solve(matrixvalue1, matrix, matrix1, "*");
-            Help.solve(matrixvalue1, matrix, matrix1, "+");
-            Help.solve(matrixvalue1, matrix, matrix1, "-");
+            Help.solve(matrix, matrix1, "*");
+            Help.solve(matrix, matrix1, "+");
+            Help.solve(matrix, matrix1, "-");
         }
     }
 }

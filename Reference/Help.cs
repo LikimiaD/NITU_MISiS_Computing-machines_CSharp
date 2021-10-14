@@ -52,62 +52,61 @@ namespace Reference
             }
         }
 
-        public static void solve(int[] matrixvalue, int[,] matrix1, int[,] matrix2, string symbol)
+        public static void solve(int[,] matrix1, int[,] matrix2, string symbol)
         {
             switch (symbol)
             {
                 case "*":
                     try
+                {
+                    for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int x = 0; x < matrixvalue[0]; x++)
+                        for (int y = 0; y < matrix1.GetLength(1); y++)
                         {
-                            for (int y = 0; y < matrixvalue[1]; y++)
-                            {
-                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] * matrix2[x, y]));
-                            }
+                            Console.Write("{0}", string.Join(" ", matrix1[x, y] * matrix2[x, y]));
                         }
-                        break;
                     }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Multiply недопустима!");
-                        break;
-                    }
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Add недопустима!");
+                    break;
+                }
                 case "+":
                     try
+                {
+                    for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int x = 0; x < matrixvalue[0]; x++)
+                        for (int y = 0; y < matrix1.GetLength(1); y++)
                         {
-                            for (int y = 0; y < matrixvalue[1]; y++)
-                            {
-                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
-                            }
+                            Console.Write("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
                         }
-                        break;
                     }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Add недопустима!");
-                        break;
-                    }
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Add недопустима!");
+                    break;
+                }
                 case "-":
                     try
+                {
+                    for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int x = 0; x < matrixvalue[0]; x++)
+                        for (int y = 0; y < matrix1.GetLength(1); y++)
                         {
-                            for (int y = 0; y < matrixvalue[1]; y++)
-                            {
-                                Console.WriteLine("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
-                            }
+                            Console.Write("{0}", string.Join(" ", matrix1[x, y] - matrix2[x, y]));
                         }
-                        break;
                     }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Subtract недопустима!");
-                        break;
-                    }
-
+                    break;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Subtract недопустима!");
+                    break;
+                }
                 default:
                     break;
             }

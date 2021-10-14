@@ -6,18 +6,21 @@ using Reference;
 
 namespace Lab_1_1
 {
-    class Lab_1_1
+    public static class Lab_1
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Stopwatch sWatch = new Stopwatch();
+            Heart();
+        }
+        static void Heart()
+        {
             string format = Start.Format();
             string mode = "";
             int[] intArray = new int[1];
             if (format == "fl")
             {
                 Console.WriteLine("Чтение ввода из файла\n");
-                StreamReader sr = new StreamReader("input.txt");
+                StreamReader sr = new StreamReader("lab1.txt");
                 mode = sr.ReadLine();
                 intArray = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
                 sr.Close();
@@ -32,12 +35,11 @@ namespace Lab_1_1
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Возможны только два варианта: a и b. Повторите попытку:");
                     Console.ResetColor();
-                    format = Console.ReadLine();
+                    mode = Console.ReadLine();
                 }
                 intArray = Start.ReadArray();
                 Console.WriteLine();
             }
-            sWatch.Start();
 
             int numMIN = 0;
             int numMAX = 0;
@@ -100,11 +102,6 @@ namespace Lab_1_1
                     Console.WriteLine("Режим не выбран, заканчиваю работу…");
                     break;
             }
-            sWatch.Stop();
-            Console.BackgroundColor = ConsoleColor.Blue;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("Работа завершена за {0}", sWatch.Elapsed.ToString());
-            Console.ResetColor();
         }
     }
 }

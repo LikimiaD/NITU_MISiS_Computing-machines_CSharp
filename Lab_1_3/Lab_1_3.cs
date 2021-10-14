@@ -4,9 +4,13 @@ using Reference;
 
 namespace Lab_1_3
 {
-    class Lab_1_3
+    public class Lab_3
     {
-        static void Main(string[] args)
+        public static void Main()
+        {
+            Heart();
+        }
+        static void Heart()
         {
             int[][] matrix = null;
             int? min = null;
@@ -36,10 +40,12 @@ namespace Lab_1_3
                         }
                     }
                     value = Array.ConvertAll(Console.ReadLine().Split(" "), s => int.Parse(s));
+                    Console.WriteLine();
+                    for (int i = 0; i < matrix.GetLength(0); i++){Console.WriteLine("{0}", string.Join(" ", matrix[i]));}
                     break;
 
                 case "fl":
-                    StreamReader sr = new StreamReader("input.txt");
+                    StreamReader sr = new StreamReader("lab3.txt");
                     matrix = new int[int.Parse(sr.ReadLine())][];
 
                     for (int x = 0; x < matrix.GetLength(0); x++)
@@ -60,11 +66,12 @@ namespace Lab_1_3
                     }
                     value = Array.ConvertAll(sr.ReadLine().Split(" "), s => int.Parse(s));
                     sr.Close();
+                    Console.WriteLine();
+                    for (int i = 0; i < matrix.GetLength(0); i++) { Console.WriteLine("{0}", string.Join(" ", matrix[i])); }
                     break;
                 default:
                     break;
             }
-            Console.WriteLine();
             Help.SteppedMatrixFindIndex(matrix, min);
             Help.SteppedMatrixFindIndex(matrix, max);
             Help.RandomValueChanger(matrix, value);
