@@ -61,10 +61,9 @@ namespace Reference
                 {
                     for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int y = 0; y < matrix1.GetLength(1); y++)
-                        {
-                            Console.Write("{0}", string.Join(" ", matrix1[x, y] * matrix2[x, y]));
-                        }
+                        var ONA_CHO_TO_DELAET = new int[matrix1.GetLength(1)];
+                        for (int y = 0; y < matrix1.GetLength(1); y++) ONA_CHO_TO_DELAET[y] = (matrix1[x, y] * matrix2[x, y]);
+                            Console.WriteLine("{0}", String.Join(" ", ONA_CHO_TO_DELAET));
                     }
                     break;
                 }
@@ -78,10 +77,9 @@ namespace Reference
                 {
                     for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int y = 0; y < matrix1.GetLength(1); y++)
-                        {
-                            Console.Write("{0}", string.Join(" ", matrix1[x, y] + matrix2[x, y]));
-                        }
+                            var ONA_CHO_TO_DELAET = new int[matrix1.GetLength(1)];
+                            for (int y = 0; y < matrix1.GetLength(1); y++) ONA_CHO_TO_DELAET[y] = (matrix1[x, y] + matrix2[x, y]);
+                            Console.WriteLine("{0}", String.Join(" ", ONA_CHO_TO_DELAET));
                     }
                     break;
                 }
@@ -95,11 +93,10 @@ namespace Reference
                 {
                     for (int x = 0; x < matrix1.GetLength(0); x++)
                     {
-                        for (int y = 0; y < matrix1.GetLength(1); y++)
-                        {
-                            Console.Write("{0}", string.Join(" ", matrix1[x, y] - matrix2[x, y]));
+                            var ONA_CHO_TO_DELAET = new int[matrix1.GetLength(1)];
+                            for (int y = 0; y < matrix1.GetLength(1); y++) ONA_CHO_TO_DELAET[y] = (matrix1[x, y] - matrix2[x, y]);
+                            Console.WriteLine("{0}", String.Join(" ", ONA_CHO_TO_DELAET));
                         }
-                    }
                     break;
                 }
                 catch (Exception)

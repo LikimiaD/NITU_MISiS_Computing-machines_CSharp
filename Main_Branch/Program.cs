@@ -25,9 +25,9 @@ namespace Main_Branch
             while (input != "exit")
             {
                 input = Console.ReadLine();
-                if (input == "1") { Stopwatch sWatch = new Stopwatch(); Lab_1.Main(); sWatch.Start();sWatch.Stop();Console.BackgroundColor = ConsoleColor.Blue;Console.ForegroundColor = ConsoleColor.White;Console.WriteLine("Работа завершена за {0}", sWatch.Elapsed.ToString());Console.ResetColor();}
-                if (input == "2") { Stopwatch sWatch = new Stopwatch(); Lab_2.Main(); sWatch.Start(); sWatch.Stop(); Console.BackgroundColor = ConsoleColor.Blue; Console.ForegroundColor = ConsoleColor.White; Console.WriteLine("Работа завершена за {0}", sWatch.Elapsed.ToString()); Console.ResetColor(); }
-                if (input == "3") { Stopwatch sWatch = new Stopwatch(); Lab_3.Main(); sWatch.Start(); sWatch.Stop(); Console.BackgroundColor = ConsoleColor.Blue; Console.ForegroundColor = ConsoleColor.White; Console.WriteLine("Работа завершена за {0}", sWatch.Elapsed.ToString()); Console.ResetColor(); }
+                if (input == "1") { Stopwatch sWatch = new Stopwatch(); Lab_1.Main(); sWatch.Start();sWatch.Stop();Console.BackgroundColor = ConsoleColor.Blue;Console.ForegroundColor = ConsoleColor.White;Console.Write("Работа завершена за {0}", sWatch.Elapsed.ToString());Console.ResetColor();}
+                if (input == "2") { Stopwatch sWatch = new Stopwatch(); Lab_2.Main(); sWatch.Start(); sWatch.Stop(); Console.BackgroundColor = ConsoleColor.Blue; Console.ForegroundColor = ConsoleColor.White; Console.Write("Работа завершена за {0}", sWatch.Elapsed.ToString()); Console.ResetColor(); }
+                if (input == "3") { Stopwatch sWatch = new Stopwatch(); Lab_3.Main(); sWatch.Start(); sWatch.Stop(); Console.BackgroundColor = ConsoleColor.Blue; Console.ForegroundColor = ConsoleColor.White; Console.Write("Работа завершена за {0}", sWatch.Elapsed.ToString()); Console.ResetColor(); }
             }
         }
     }

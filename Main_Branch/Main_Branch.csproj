@@ -15,6 +15,9 @@
     <Reference Include="Lab_1_3">
       <HintPath>..\Lab_1_3\bin\Debug\netcoreapp3.1\Lab_1_3.dll</HintPath>
     </Reference>
+    <Reference Include="Reference">
+      <HintPath>..\Reference\bin\Debug\netcoreapp3.1\Reference.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
