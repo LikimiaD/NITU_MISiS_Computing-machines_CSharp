@@ -6,10 +6,12 @@ namespace Reference
     {
         public static int findIndex(int[] array, int item)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             return Array.FindIndex(array, val => val.Equals(item));
         }
         public static void SteppedMatrixFindIndex(int[][] matrix, int? value)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             for (int x = 0; x < matrix.GetLength(0); x++)
             {
                 for (int y = 0; y < matrix[x].Length; y++)
@@ -23,6 +25,7 @@ namespace Reference
         }
         public static void ParityArray(int[] array)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string[] parityArray = new string[array.Length];
             int value = 0;
 
@@ -39,6 +42,7 @@ namespace Reference
         }
         public static void findIndexMatrix(int[,] matrix, int? num)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             for (int x = 0; x < matrix.GetLength(0); x++)
             {
                 for (int y = 0; y < matrix.GetLength(1); y++)
@@ -54,6 +58,7 @@ namespace Reference
 
         public static void solve(int[,] matrix1, int[,] matrix2, string symbol)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             switch (symbol)
             {
                 case "*":
@@ -110,6 +115,7 @@ namespace Reference
         }
         public static void RandomValueChanger(int[][] matrix, int[] value)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Random ran = new Random();
             matrix[value[0]][value[1]] = ran.Next(0, 1000);
             Console.WriteLine("{0}", string.Join(" ", matrix[value[0]]));

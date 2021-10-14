@@ -6,6 +6,7 @@ namespace Reference
     {
         public static string Format()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Выберите функцию\nkb-> Ввод с клавиатуры\nfl -> Чтение ввода из файла\n");
             string format = Console.ReadLine();
             while ((format != "kb") && (format != "fl"))
@@ -21,6 +22,7 @@ namespace Reference
 
         public static int[] ReadArray()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int[] intArray;
             while (true)
             {
@@ -43,6 +45,7 @@ namespace Reference
 
         public static int[] ReadMatrix()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int[] matrixvalue;
             while (true)
             {

@@ -12,6 +12,7 @@ namespace Lab_1_3
         }
         static void Heart()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             int[][] matrix = null;
             int? min = null;
             int? max = null;

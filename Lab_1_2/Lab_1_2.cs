@@ -12,6 +12,7 @@ namespace Lab_1_2
         }
         static void Heart()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string format = Start.Format();
 
             int? min = null;

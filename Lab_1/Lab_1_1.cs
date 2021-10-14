@@ -14,6 +14,7 @@ namespace Lab_1_1
         }
         static void Heart()
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string format = Start.Format();
             string mode = "";
             int[] intArray = new int[1];

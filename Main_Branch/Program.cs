@@ -10,6 +10,7 @@ namespace Main_Branch
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
 
             var input = "";
             Console.WriteLine("***************************************************************\n" +
